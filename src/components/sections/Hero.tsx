@@ -29,7 +29,7 @@ function SplitText({
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
           transition={{
             duration: 1,
-            ease: [0.22, 0.7, 0.2, 1],
+            ease: [0.22, 0.7, 0.2, 1] as const,
             delay: (baseMs + i * stepMs) / 1000,
           }}
           style={{ display: 'inline-block', whiteSpace: 'pre' }}
@@ -144,7 +144,7 @@ export default function Hero() {
             filter: 'blur(0px)',
             y: swept ? -50 : 0,
           }}
-          transition={{ duration: 1, delay: 2, ease: [0.22, 0.7, 0.2, 1] }}
+          transition={{ duration: 1, delay: 2, ease: [0.22, 0.7, 0.2, 1] as const }}
         >
           2K26
         </motion.div>
@@ -156,7 +156,7 @@ export default function Hero() {
             opacity: swept ? 0 : 1,
             y: swept ? 'calc(-50% - 50px)' : '-50%',
           }}
-          transition={{ duration: 1, delay: 2.1, ease: [0.22, 0.7, 0.2, 1] }}
+          transition={{ duration: 1, delay: 2.1, ease: [0.22, 0.7, 0.2, 1] as const }}
         >
           <div className="w-px h-20 bg-white/55" />
           <div
@@ -183,7 +183,7 @@ export default function Hero() {
             y: swept ? -50 : 0,
             pointerEvents: swept ? 'none' : 'auto',
           }}
-          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] as const }}
         >
           <span className="block">
             <SplitText text="TIMELESS VISUAL STORIES FOR" baseMs={600} stepMs={22} />
