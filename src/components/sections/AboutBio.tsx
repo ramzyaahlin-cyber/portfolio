@@ -34,7 +34,7 @@ export default function AboutBio() {
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-12 md:gap-20 items-start">
         <motion.div {...fadeIn}>
           <img
-            src="/ramzy02.jpeg"
+            src={`${import.meta.env.BASE_URL}ramzy02.jpeg`}
             alt="Ramzy Aahlin Zaher"
             className="w-full rounded-[14px] block"
             style={{ filter: 'grayscale(100%) contrast(1.05)' }}

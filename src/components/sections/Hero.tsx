@@ -114,7 +114,7 @@ export default function Hero() {
           ref={portraitRef}
           className="absolute inset-0 z-0 bg-cover"
           style={{
-            backgroundImage: "url('/portrait.jpeg')",
+            backgroundImage: `url('${import.meta.env.BASE_URL}portrait.jpeg')`,
             backgroundPosition: 'center 15%',
             transition: 'transform 1.4s cubic-bezier(.2,.8,.2,1)',
           }}
