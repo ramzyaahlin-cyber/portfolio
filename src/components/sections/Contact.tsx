@@ -94,35 +94,35 @@ function MetaLink({
   );
 }
 
-export default function Footer() {
+export default function Contact() {
   return (
     <section
       id="contact"
       className="relative z-[4] bg-[#0a0a0a] text-[#f4f1ea]"
     >
-      <div className="max-w-[1680px] mx-auto px-6 sm:px-10 pt-[clamp(84px,11.2vw,140px)] pb-[clamp(72px,8vw,120px)]">
+      <div className="max-w-[1680px] mx-auto px-6 sm:px-10 pt-[clamp(120px,16vw,200px)] pb-[clamp(72px,8vw,120px)]">
         {/* big headline */}
         <h2
-          className="font-sans font-medium uppercase"
+          className="font-sans font-medium"
           style={{
             fontSize: "clamp(64px, 12vw, 220px)",
-            lineHeight: "0.92",
+            lineHeight: "0.88",
             letterSpacing: "-0.045em",
-            paddingBottom: "24px",
           }}
         >
+          <RevealLine>Have a</RevealLine>
           <RevealLine delay={0.08}>
             <span
-              className="italic font-normal normal-case"
+              className="italic font-normal"
               style={{
                 fontFamily: "var(--font-serif)",
                 color: "var(--accent)",
               }}
             >
-              have a project?
+              project?
             </span>
           </RevealLine>
-          <RevealLine delay={0.16}>Let's build.</RevealLine>
+          <RevealLine delay={0.16}>Let’s build.</RevealLine>
         </h2>
 
         {/* row 2: kicker + lede + cta */}

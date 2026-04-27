@@ -1,23 +1,23 @@
-import Nav from './components/ui/Nav'
-import ScrollProgress from './components/ui/ScrollProgress'
-import Hero from './components/sections/Hero'
-import AboutBio from './components/sections/AboutBio'
-import Projects from './components/sections/Projects'
-import Trust from './components/sections/Trust'
-import Selected from './components/sections/Selected'
-import Footer from './components/sections/Footer'
+import Nav from "./components/ui/Nav";
+import ScrollProgress from "./components/ui/ScrollProgress";
+import CustomCursor from "./components/ui/CustomCursor";
+import StatusBug from "./components/ui/StatusBug";
+import Hero from "./components/sections/Hero";
+import Work from "./components/sections/Work";
+import About from "./components/sections/About";
+import Footer from "./components/sections/Footer";
 
 export default function App() {
   return (
-    <main className="bg-white text-black-90 font-sans overflow-x-hidden">
+    <main className="bg-white text-black-90 font-sans">
       <ScrollProgress />
+      <CustomCursor />
       <Nav />
       <Hero />
-      <AboutBio />
-      <Projects />
-      <Trust />
-      <Selected />
+      <Work />
+      <About />
       <Footer />
+      <StatusBug />
     </main>
-  )
+  );
 }
