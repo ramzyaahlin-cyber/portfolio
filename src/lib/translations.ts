@@ -2,9 +2,9 @@ import type { Lang } from "./LangContext";
 
 const en = {
   nav: {
-    work: "Work",
-    about: "About",
-    contact: "Contact",
+    work: "WORK",
+    about: "ABOUT",
+    contact: "CONTACT",
     langSwitch: "NO",
   },
   hero: {
