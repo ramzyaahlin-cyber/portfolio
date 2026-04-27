@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import RevealLine from "../../lib/RevealLine";
+import { useLang } from "../../lib/LangContext";
+import { t } from "../../lib/translations";
 
 const VIEW_EASE = [0.2, 0.8, 0.2, 1] as const;
 
@@ -95,6 +97,8 @@ function MetaLink({
 }
 
 export default function Footer() {
+  const { lang } = useLang();
+  const txt = t[lang].footer;
   return (
     <section
       id="contact"
@@ -111,6 +115,7 @@ export default function Footer() {
             paddingBottom: "24px",
           }}
         >
+          <RevealLine delay={0.0}>{txt.headingA}</RevealLine>
           <RevealLine delay={0.08}>
             <span
               className="italic font-normal normal-case"
@@ -119,10 +124,10 @@ export default function Footer() {
                 color: "var(--accent)",
               }}
             >
-              have a project?
+              {txt.headingB}
             </span>
           </RevealLine>
-          <RevealLine delay={0.16}>Let's build.</RevealLine>
+          <RevealLine delay={0.16}>{txt.headingC}</RevealLine>
         </h2>
 
         {/* row 2: kicker + lede + cta */}
@@ -132,7 +137,7 @@ export default function Footer() {
             className="col-span-12 sm:col-span-2 font-mono uppercase text-white/55"
             style={{ fontSize: "11px", letterSpacing: "0.18em" }}
           >
-            — Contact / 04
+            {txt.kicker}
           </motion.div>
           <motion.p
             {...fadeIn}
@@ -143,10 +148,9 @@ export default function Footer() {
               lineHeight: "1.5",
             }}
           >
-            Taking on a small number of briefs for{" "}
-            <strong className="font-semibold text-white">Q3 2026</strong>.
-            Shopify themes, WooCommerce builds, and full identity → frontend
-            work. Say hello — I answer everything.
+            {txt.lede}{" "}
+            <strong className="font-semibold text-white">{txt.ledeQ}</strong>
+            {txt.ledePost}
           </motion.p>
           <div className="col-span-12 lg:col-start-9 lg:col-span-4 flex flex-col gap-3">
             <CTAButton
@@ -166,12 +170,12 @@ export default function Footer() {
 
         {/* contact-meta */}
         <div className="mt-24 grid grid-cols-12 gap-6 pt-6 border-t border-white/15">
-          <MetaBlock title="Studio">
+          <MetaBlock title={txt.studio}>
             Kirkenes, Norway
             <br />
             69.7257° N, 30.0481° E
           </MetaBlock>
-          <MetaBlock title="Live">
+          <MetaBlock title={txt.live}>
             <div className="flex flex-col gap-1">
               <MetaLink href="https://barentsgallery.no" external>
                 barentsgallery.no ↗
@@ -181,7 +185,7 @@ export default function Footer() {
               </MetaLink>
             </div>
           </MetaBlock>
-          <MetaBlock title="Socials">
+          <MetaBlock title={txt.socials}>
             <div className="flex flex-col gap-1">
               <MetaLink href="https://www.instagram.com/ramzy.zaher/" external>
                 Instagram ↗
@@ -191,10 +195,10 @@ export default function Footer() {
               </MetaLink>
             </div>
           </MetaBlock>
-          <MetaBlock title="Availability">
+          <MetaBlock title={txt.availability}>
             Q3 → Q4 2026
             <br />
-            <span style={{ color: "var(--accent)" }}>●</span> Booking now
+            <span style={{ color: "var(--accent)" }}>●</span> {txt.bookingNow}
           </MetaBlock>
         </div>
       </div>

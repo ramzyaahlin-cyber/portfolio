@@ -1,0 +1,231 @@
+import type { Lang } from "./LangContext";
+
+const en = {
+  nav: {
+    work: "Work",
+    about: "About",
+    contact: "Contact",
+    langSwitch: "NO",
+  },
+  hero: {
+    ledePre: "Twenty-five years of building brand, interface, and the code underneath —",
+    ledeItalic: "end-to-end",
+    ledePost: ", from first sketch to final ship.",
+  },
+  work: {
+    kicker: "— Selected Work / 2026",
+    headingA: "Two projects,",
+    headingB: "end-to-end.",
+    metaRight: ["(02) Recent Builds", "Shopify · WordPress"] as const,
+    notesLabel: "— Notes",
+    p01: {
+      role: "Theme Design · Frontend · UX",
+      pitch:
+        "A bespoke Shopify OS 2.0 theme for a gallery and retail brand in the High North — room visualisation, wishlist, upsell logic, and layered product filtering, all on custom Liquid.",
+      deliverables: [
+        ["UX Structure", "01"],
+        ["Visual Identity", "02"],
+        ["Theme Build", "03"],
+        ["Room Visualiser", "04"],
+      ] as const,
+      frameLabels: ["A · PRODUCT", "B · WISHLIST", "C · CHOOSER"] as const,
+      notes: [
+        "Upsell is solved at the block level, not bolted on — merchandisers compose the page instead of calling a developer.",
+        "Room visualiser runs client-side with persisted state across PDPs, so a customer can dress a wall before they commit.",
+      ] as const,
+      quoteStart: "Total ownership from ",
+      quoteAccent1: "grid",
+      quoteMid: " and type to the last line of Liquid — sold as a ",
+      quoteAccent2: "system",
+      quoteEnd: ", not a skin.",
+    },
+    p02: {
+      role: "Full-stack Web · Identity · CMS",
+      pitch:
+        "A WordPress / WooCommerce build for a regional craft and brand collective — visual identity, editorial layout, and a commerce stack tuned to Arctic logistics.",
+      deliverables: [
+        ["Identity System", "01"],
+        ["Editorial Templates", "02"],
+        ["Commerce Flows", "03"],
+        ["Implementation", "04"],
+      ] as const,
+      frameLabels: [
+        "A · TJENESTER",
+        "B · PROSJEKTER",
+        "C · BILDEPRODUKSJON",
+      ] as const,
+      notes: [
+        'Built as a modular service catalog — each tjeneste (service) expands into a filterable project gallery. No separate "portfolio" section; the work is the navigation.',
+        "Category taxonomy mirrors how clients actually think: by material (folie, skilt, trykk) and by project type (fasade, kjøretøy, messemateriell). The same project can surface in multiple views without duplication.",
+      ] as const,
+      quoteStart: "A ",
+      quoteAccent1: "regional",
+      quoteMid: " brand built like a magazine — with a checkout underneath that doesn't ",
+      quoteAccent2: "flinch",
+      quoteEnd: ".",
+    },
+    stackLabel: "Stack",
+    deliverablesLabel: "Deliverables",
+  },
+  about: {
+    kicker: "— About / 03",
+    headingStart: "A practice built on",
+    headingOwnership: "ownership.",
+    headingMid: "Brand, interface, and the",
+    headingCode: "code",
+    headingEnd: "that carries them.",
+    bio1Pre: "I'm ",
+    bio1Name: "Ramzy",
+    bio1Mid: " — a digital designer and frontend developer based in ",
+    bio1Place: "Kirkenes",
+    bio1Post:
+      ", Norway. For twenty-five years I've worked across ",
+    bio1Italic: "web design",
+    bio1Suffix:
+      ", graphic production and brand building, mostly under total ownership of the brief.",
+    bio2: "I prefer projects where I can carry a thing from first sketch to final ship — concept and visual system, through to production code on Shopify or WordPress. One person, one throughline.",
+    bio3Pre: "The work I like best is the kind that looks simple and holds up under use: design that actually ",
+    bio3Italic: "functions",
+    bio3Post: " in the wild, not just in the case-study screenshot.",
+    timelineKicker: "— Timeline / 1994 → 2026",
+    timelineHint: "Hover → expand",
+    skillsHeadingA: "Stack &",
+    skillsHeadingB: "toolkit.",
+    platforms: "Platforms",
+    frontend: "Frontend",
+    design: "Design",
+  },
+  footer: {
+    kicker: "— Contact / 04",
+    headingA: "Have a",
+    headingB: "project?",
+    headingC: "Let's build.",
+    lede: "Taking on a small number of briefs for",
+    ledeQ: "Q3 2026",
+    ledePost:
+      ". Shopify themes, WooCommerce builds, and full identity → frontend work. Say hello — I answer everything.",
+    studio: "Studio",
+    live: "Live",
+    socials: "Socials",
+    availability: "Availability",
+    bookingNow: "Booking now",
+  },
+  statusBug: "Available · Kirkenes",
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const no: any = {
+  nav: {
+    work: "Arbeid",
+    about: "Om meg",
+    contact: "Kontakt",
+    langSwitch: "ENG",
+  },
+  hero: {
+    ledePre:
+      "Tjuefem år med å bygge merkevare, grensesnitt og koden under —",
+    ledeItalic: "ende-til-ende",
+    ledePost: ", fra første skisse til ferdig produkt.",
+  },
+  work: {
+    kicker: "— Utvalgt arbeid / 2026",
+    headingA: "To prosjekter,",
+    headingB: "ende-til-ende.",
+    metaRight: ["(02) Nylige bygg", "Shopify · WordPress"] as const,
+    notesLabel: "— Notater",
+    p01: {
+      role: "Temadesign · Frontend · UX",
+      pitch:
+        "Et skreddersydd Shopify OS 2.0-tema for et galleri og detaljhandelmerke i Nordområdene — romvisualisering, ønskeliste, mersalgslogikk og lagdelt produktfiltrering, alt på tilpasset Liquid.",
+      deliverables: [
+        ["UX-struktur", "01"],
+        ["Visuell identitet", "02"],
+        ["Temabygg", "03"],
+        ["Romvisualisering", "04"],
+      ] as const,
+      frameLabels: ["A · PRODUKT", "B · ØNSKELISTE", "C · VELGER"] as const,
+      notes: [
+        "Mersalg er løst på blokknivå, ikke påkoblet — merchandisere komponerer siden i stedet for å ringe en utvikler.",
+        "Romvisualisering kjører på klientsiden med vedvarende tilstand på tvers av PDP-er, slik at en kunde kan kle en vegg før de forplikter seg.",
+      ] as const,
+      quoteStart: "Totalt eierskap fra ",
+      quoteAccent1: "rutenett",
+      quoteMid: " og typografi til siste linje Liquid — solgt som et ",
+      quoteAccent2: "system",
+      quoteEnd: ", ikke en skin.",
+    },
+    p02: {
+      role: "Full-stack Web · Identitet · CMS",
+      pitch:
+        "Et WordPress / WooCommerce-bygg for et regionalt håndverks- og merkekollektiv — visuell identitet, redaksjonelt layout og en handelsstack tilpasset arktisk logistikk.",
+      deliverables: [
+        ["Identitetssystem", "01"],
+        ["Redaksjonelle maler", "02"],
+        ["Handelsflyter", "03"],
+        ["Implementering", "04"],
+      ] as const,
+      frameLabels: [
+        "A · TJENESTER",
+        "B · PROSJEKTER",
+        "C · BILDEPRODUKSJON",
+      ] as const,
+      notes: [
+        'Bygget som en modulær tjenestekatalog — hver tjeneste utvides til et filtrerbart prosjektgalleri. Ingen separat "portefølje"-seksjon; arbeidet er navigasjonen.',
+        "Kategoritaksonomi speiler hvordan klienter faktisk tenker: etter materiale (folie, skilt, trykk) og etter prosjekttype (fasade, kjøretøy, messemateriell). Samme prosjekt kan dukke opp i flere visninger uten duplisering.",
+      ] as const,
+      quoteStart: "Et ",
+      quoteAccent1: "regionalt",
+      quoteMid: " merke bygget som et magasin — med en kasse under som ikke ",
+      quoteAccent2: "vakler",
+      quoteEnd: ".",
+    },
+    stackLabel: "Stack",
+    deliverablesLabel: "Leveranser",
+  },
+  about: {
+    kicker: "— Om meg / 03",
+    headingStart: "En praksis bygget på",
+    headingOwnership: "eierskap.",
+    headingMid: "Merke, grensesnitt, og",
+    headingCode: "koden",
+    headingEnd: "som bærer dem.",
+    bio1Pre: "Jeg er ",
+    bio1Name: "Ramzy",
+    bio1Mid: " — digital designer og frontend-utvikler basert i ",
+    bio1Place: "Kirkenes",
+    bio1Post: ", Norge. I tjuefem år har jeg jobbet med ",
+    bio1Italic: "webdesign",
+    bio1Suffix:
+      ", grafisk produksjon og merkevarebygging, hovedsakelig med full eierskap til oppgaven.",
+    bio2: "Jeg foretrekker prosjekter der jeg kan bære en ting fra første skisse til endelig levering — konsept og visuelt system, gjennom til produksjonskode på Shopify eller WordPress. Én person, én gjennomgående linje.",
+    bio3Pre:
+      "Det arbeidet jeg liker best er den typen som ser enkelt ut og holder mål under bruk: design som faktisk ",
+    bio3Italic: "fungerer",
+    bio3Post: " i praksis, ikke bare i casestudien.",
+    timelineKicker: "— Tidslinje / 1994 → 2026",
+    timelineHint: "Hold over → utvid",
+    skillsHeadingA: "Stack &",
+    skillsHeadingB: "verktøykasse.",
+    platforms: "Plattformer",
+    frontend: "Frontend",
+    design: "Design",
+  },
+  footer: {
+    kicker: "— Kontakt / 04",
+    headingA: "Har du et",
+    headingB: "prosjekt?",
+    headingC: "La oss bygge.",
+    lede: "Tar på meg et lite antall oppdrag for",
+    ledeQ: "Q3 2026",
+    ledePost:
+      ". Shopify-temaer, WooCommerce-bygg og full identitet → frontend-arbeid. Si hei – jeg svarer på alt.",
+    studio: "Studio",
+    live: "Live",
+    socials: "Sosiale medier",
+    availability: "Tilgjengelighet",
+    bookingNow: "Booker nå",
+  },
+  statusBug: "Tilgjengelig · Kirkenes",
+};
+
+export const t: Record<Lang, typeof en> = { en, no };

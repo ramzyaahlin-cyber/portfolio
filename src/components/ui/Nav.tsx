@@ -1,5 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState, type MouseEvent } from "react";
+import { useLang } from "../../lib/LangContext";
+import { t } from "../../lib/translations";
 import { scrollToTop as smoothScrollToTop } from "../../lib/scroll";
 
 const LIGHT_SECTIONS = [
@@ -22,17 +24,18 @@ function useMediaQuery(query: string) {
   return matches;
 }
 
-const NAV_LINKS = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-] as const;
-
 export default function Nav() {
+  const { lang, triggerSwitch } = useLang();
+  const txt = t[lang].nav;
   const [light, setLight] = useState(false);
   const [swept, setSwept] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const isCompact = useMediaQuery("(max-width: 1023px)");
+  const NAV_LINKS = [
+    { href: "#work", label: txt.work },
+    { href: "#about", label: txt.about },
+    { href: "#contact", label: txt.contact },
+  ];
 
   const handleScrollToTop = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
@@ -146,6 +149,15 @@ export default function Nav() {
             >
               GitHub
             </a>
+            <span className="hidden sm:inline opacity-30 mx-1">·</span>
+            <button
+              type="button"
+              onClick={triggerSwitch}
+              className="pointer-events-auto font-mono uppercase hover:underline underline-offset-[6px] decoration-1 cursor-pointer"
+              style={{ fontSize: "11px", letterSpacing: "0.14em" }}
+            >
+              {txt.langSwitch}
+            </button>
           </div>
         )}
 
@@ -252,6 +264,14 @@ export default function Nav() {
                   GitHub
                 </a>
               </div>
+              <button
+                type="button"
+                onClick={() => { triggerSwitch(); closeMenu(); }}
+                className="font-mono uppercase text-white/60 hover:text-white transition-colors mt-2"
+                style={{ fontSize: "14px", letterSpacing: "0.14em" }}
+              >
+                {txt.langSwitch}
+              </button>
             </div>
           </motion.div>
         )}

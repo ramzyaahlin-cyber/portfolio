@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import { useLang } from "../../lib/LangContext";
+import { t } from "../../lib/translations";
 import RevealLine from "../../lib/RevealLine";
 
 const VIEW_EASE = [0.2, 0.8, 0.2, 1] as const;
@@ -116,6 +118,8 @@ function ProjectCase({
   data: ProjectData;
   dark?: boolean;
 }) {
+  const { lang } = useLang();
+  const txt = t[lang];
   const ink = dark ? "text-[#f4f1ea]" : "text-black-90";
   const inkSoft = dark ? "text-white/85" : "text-black-80";
   const muted = dark ? "text-white/55" : "text-black-60";
@@ -248,9 +252,9 @@ function ProjectCase({
             {data.quote}
           </motion.p>
           <div className="col-span-12 lg:col-start-7 lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
-            <MetaBlock title="Stack" items={data.stack} dark={dark} />
+            <MetaBlock title={txt.work.stackLabel} items={data.stack} dark={dark} />
             <MetaBlock
-              title="Deliverables"
+              title={txt.work.deliverablesLabel}
               items={data.deliverables}
               dark={dark}
             />
@@ -269,7 +273,7 @@ function ProjectCase({
               className={`font-mono uppercase mb-4 block ${muted}`}
               style={{ fontSize: "10px", letterSpacing: "0.20em" }}
             >
-              — Notes
+              {txt.work.notesLabel}
             </span>
             {data.notes.map((n, i) => (
               <motion.p
@@ -295,103 +299,77 @@ function ProjectCase({
 
 const BASE = import.meta.env.BASE_URL;
 
-const PROJECT_01: ProjectData = {
-  index: "[ P — 01 / 02 ]",
-  role: "Theme Design · Frontend · UX",
-  year: "2026 / Kirkenes, NO",
-  titleA: "Barents",
-  titleB: "Gallery.",
-  pitch:
-    "A bespoke Shopify OS 2.0 theme for a gallery and retail brand in the High North — room visualisation, wishlist, upsell logic, and layered product filtering, all on custom Liquid.",
-  image: `${BASE}barents-home-desktop.webp`,
-  caption: "01 — Storefront, Home",
-  tagRight: "Shopify OS 2.0 / Liquid",
-  captionDark: true,
-  tagRightDark: true,
-  href: "https://barentsgallery.no",
-  quote: (
-    <>
-      “Total ownership from <span style={{ color: "var(--accent)" }}>grid</span>{" "}
-      and type to the last line of Liquid — sold as a{" "}
-      <span style={{ color: "var(--accent)" }}>system</span>, not a skin.”
-    </>
-  ),
-  stack: [
-    ["Shopify OS 2.0", "LIQ"],
-    ["Theme CLI", "CLI"],
-    ["Vanilla JS", "JS"],
-    ["Sections / Blocks", "UI"],
-  ] as const,
-  deliverables: [
-    ["UX Structure", "01"],
-    ["Visual Identity", "02"],
-    ["Theme Build", "03"],
-    ["Room Visualiser", "04"],
-  ] as const,
-  frames: [
-    { label: "A · PRODUCT", image: `${BASE}barents-product.webp` },
-    { label: "B · WISHLIST", image: `${BASE}barents-wishlist.webp` },
-    { label: "C · CHOOSER", image: `${BASE}barents-chooser.webp` },
-  ] as const,
-  notes: [
-    "Upsell is solved at the block level, not bolted on — merchandisers compose the page instead of calling a developer.",
-    "Room visualiser runs client-side with persisted state across PDPs, so a customer can dress a wall before they commit.",
-  ] as const,
-};
-
-const PROJECT_02: ProjectData = {
-  index: "[ P — 02 / 02 ]",
-  role: "Full-stack Web · Identity · CMS",
-  year: "2026 / Kirkenes, NO",
-  titleA: "Merk",
-  titleB: "Barents.",
-  pitch:
-    "A WordPress / WooCommerce build for a regional craft and brand collective — visual identity, editorial layout, and a commerce stack tuned to Arctic logistics.",
-  image: `${BASE}merk-home.webp`,
-  caption: "02 — Storefront, Home",
-  tagRight: "WordPress / WooCommerce",
-  captionDark: true,
-  tagRightDark: false,
-  href: "https://merkbarents.no",
-  quote: (
-    <>
-      “A <span style={{ color: "var(--accent)" }}>regional</span> brand built
-      like a magazine — with a checkout underneath that doesn’t{" "}
-      <span style={{ color: "var(--accent)" }}>flinch</span>.”
-    </>
-  ),
-  stack: [
-    ["WordPress", "CMS"],
-    ["WooCommerce", "COM"],
-    ["Custom PHP / JS", "DEV"],
-    ["ACF", "UI"],
-  ] as const,
-  deliverables: [
-    ["Identity System", "01"],
-    ["Editorial Templates", "02"],
-    ["Commerce Flows", "03"],
-    ["Implementation", "04"],
-  ] as const,
-  frames: [
-    { label: "A · TJENESTER", image: `${BASE}merk-tjenester.webp` },
-    { label: "B · PROSJEKTER", image: `${BASE}merk-prosjekter.webp` },
-    { label: "C · BILDEPRODUKSJON", image: `${BASE}merk-bildeproduksjon.webp` },
-  ] as const,
-  notes: [
-    <>
-      Built as a modular service catalog — each tjeneste (service) expands into
-      a filterable project gallery. No separate “portfolio” section; the work{" "}
-      <em>is</em> the navigation.
-    </>,
-    <>
-      Category taxonomy mirrors how clients actually think: by material (folie,
-      skilt, trykk) and by project type (fasade, kjøretøy, messemateriell). The
-      same project can surface in multiple views without duplication.
-    </>,
-  ] as const,
-};
+function getProjects(lang: "en" | "no"): [ProjectData, ProjectData] {
+  const w = t[lang].work;
+  const p01: ProjectData = {
+    index: "[ P — 01 / 02 ]",
+    role: w.p01.role,
+    year: "2026 / Kirkenes, NO",
+    titleA: "Barents",
+    titleB: "Gallery.",
+    pitch: w.p01.pitch,
+    image: `${BASE}barents-home-desktop.webp`,
+    caption: "01 — Storefront, Home",
+    tagRight: "Shopify OS 2.0 / Liquid",
+    captionDark: true,
+    tagRightDark: true,
+    href: "https://barentsgallery.no",
+    quote: (
+      <>
+        "{w.p01.quoteStart}<span style={{ color: "var(--accent)" }}>{w.p01.quoteAccent1}</span>{w.p01.quoteMid}<span style={{ color: "var(--accent)" }}>{w.p01.quoteAccent2}</span>{w.p01.quoteEnd}"
+      </>
+    ),
+    stack: [
+      ["Shopify OS 2.0", "LIQ"],
+      ["Theme CLI", "CLI"],
+      ["Vanilla JS", "JS"],
+      ["Sections / Blocks", "UI"],
+    ] as const,
+    deliverables: w.p01.deliverables,
+    frames: w.p01.frameLabels.map((label, i) => ({
+      label,
+      image: [`${BASE}barents-product.webp`, `${BASE}barents-wishlist.webp`, `${BASE}barents-chooser.webp`][i],
+    })),
+    notes: [...w.p01.notes],
+  };
+  const p02: ProjectData = {
+    index: "[ P — 02 / 02 ]",
+    role: w.p02.role,
+    year: "2026 / Kirkenes, NO",
+    titleA: "Merk",
+    titleB: "Barents.",
+    pitch: w.p02.pitch,
+    image: `${BASE}merk-home.webp`,
+    caption: "02 — Storefront, Home",
+    tagRight: "WordPress / WooCommerce",
+    captionDark: true,
+    tagRightDark: false,
+    href: "https://merkbarents.no",
+    quote: (
+      <>
+        "{w.p02.quoteStart}<span style={{ color: "var(--accent)" }}>{w.p02.quoteAccent1}</span>{w.p02.quoteMid}<span style={{ color: "var(--accent)" }}>{w.p02.quoteAccent2}</span>{w.p02.quoteEnd}"
+      </>
+    ),
+    stack: [
+      ["WordPress", "CMS"],
+      ["WooCommerce", "COM"],
+      ["Custom PHP / JS", "DEV"],
+      ["ACF", "UI"],
+    ] as const,
+    deliverables: w.p02.deliverables,
+    frames: w.p02.frameLabels.map((label, i) => ({
+      label,
+      image: [`${BASE}merk-tjenester.webp`, `${BASE}merk-prosjekter.webp`, `${BASE}merk-bildeproduksjon.webp`][i],
+    })),
+    notes: [...w.p02.notes],
+  };
+  return [p01, p02];
+}
 
 export default function Work() {
+  const { lang } = useLang();
+  const txt = t[lang];
+  const [PROJECT_01, PROJECT_02] = getProjects(lang);
   return (
     <section
       id="work"
@@ -406,7 +384,7 @@ export default function Work() {
               className="font-mono uppercase text-black-60"
               style={{ fontSize: "11px", letterSpacing: "0.18em" }}
             >
-              — Selected Work / 2026
+              {txt.work.kicker}
             </motion.div>
             <h2
               className="mt-5 font-sans font-medium text-black-90 uppercase"
@@ -417,7 +395,7 @@ export default function Work() {
                 paddingBottom: "0.15em",
               }}
             >
-              <RevealLine>Two projects,</RevealLine>
+              <RevealLine>{txt.work.headingA}</RevealLine>
               <RevealLine delay={0.08}>
                 <span
                   className="italic font-normal normal-case"
@@ -426,7 +404,7 @@ export default function Work() {
                     color: "var(--accent)",
                   }}
                 >
-                  end-to-end.
+                  {txt.work.headingB}
                 </span>
               </RevealLine>
             </h2>
@@ -437,9 +415,9 @@ export default function Work() {
             className="col-span-12 lg:col-span-3 font-mono uppercase text-black-60 lg:text-right"
             style={{ fontSize: "11px", letterSpacing: "0.16em" }}
           >
-            (02) Recent Builds
+            {txt.work.metaRight[0]}
             <br />
-            Shopify · WordPress
+            {txt.work.metaRight[1]}
           </motion.div>
         </div>
       </header>

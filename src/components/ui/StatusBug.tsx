@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useLang } from "../../lib/LangContext";
+import { t } from "../../lib/translations";
 
 export default function StatusBug() {
+  const { lang } = useLang();
   const [time, setTime] = useState("--:--:--");
   useEffect(() => {
     const tick = () => {
@@ -21,7 +24,7 @@ export default function StatusBug() {
   return (
     <div className="status-bug">
       <span className="status-bug-dot" />
-      <span>Available · Kirkenes</span>
+      <span>{t[lang].statusBug}</span>
       <span style={{ opacity: 0.7 }}>{time}</span>
     </div>
   );

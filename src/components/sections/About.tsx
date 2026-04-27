@@ -1,5 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useLang } from "../../lib/LangContext";
+import { t } from "../../lib/translations";
 
 const VIEW_EASE = [0.2, 0.8, 0.2, 1] as const;
 
@@ -138,6 +140,8 @@ function SkillsCol({
 
 export default function About() {
   const base = import.meta.env.BASE_URL;
+  const { lang } = useLang();
+  const txt = t[lang].about;
   const portraitRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: portraitRef,
@@ -154,7 +158,7 @@ export default function About() {
             className="col-span-12 sm:col-span-2 font-mono uppercase text-black-60"
             style={{ fontSize: "11px", letterSpacing: "0.18em" }}
           >
-            — About / 03
+            {txt.kicker}
           </motion.div>
           <motion.h2
             {...fadeIn}
@@ -165,7 +169,7 @@ export default function About() {
               letterSpacing: "-0.03em",
             }}
           >
-            A practice built on{" "}
+            {txt.headingStart}{" "}
             <span
               className="italic font-normal normal-case"
               style={{
@@ -173,11 +177,11 @@ export default function About() {
                 color: "var(--accent)",
               }}
             >
-              ownership.
+              {txt.headingOwnership}
             </span>{" "}
-            Brand, interface, and the{" "}
-            <span style={{ color: "var(--accent)" }}>code</span> that carries
-            them.
+            {txt.headingMid}{" "}
+            <span style={{ color: "var(--accent)" }}>{txt.headingCode}</span>{" "}
+            {txt.headingEnd}
           </motion.h2>
         </div>
 
@@ -231,11 +235,9 @@ export default function About() {
                 lineHeight: "1.5",
               }}
             >
-              I’m a digital designer and frontend developer based in{" "}
-              <strong className="font-semibold">Kirkenes</strong>, Norway. For
-              twenty-five years I’ve worked across web design, graphic
-              production and brand building, mostly under total ownership of the
-              brief.
+              {txt.bio1Pre}<strong className="font-semibold">{txt.bio1Name}</strong>{txt.bio1Mid}<strong className="font-semibold">{txt.bio1Place}</strong>{txt.bio1Post}{" "}
+              <em style={{ fontFamily: "var(--font-serif)", color: "var(--accent)", fontStyle: "italic" }}>{txt.bio1Italic}</em>
+              {txt.bio1Suffix}
             </motion.p>
             <motion.p
               {...fadeIn}
@@ -246,9 +248,7 @@ export default function About() {
                 lineHeight: "1.5",
               }}
             >
-              I prefer projects where I can carry a thing from first sketch to
-              final ship — concept and visual system, through to production code
-              on Shopify or WordPress. One person, one throughline.
+              {txt.bio2}
             </motion.p>
             <motion.p
               {...fadeIn}
@@ -259,8 +259,7 @@ export default function About() {
                 lineHeight: "1.5",
               }}
             >
-              The work I like best is the kind that looks simple and holds up
-              under use: design that actually{" "}
+              {txt.bio3Pre}
               <em
                 style={{
                   fontFamily: "var(--font-serif)",
@@ -268,9 +267,9 @@ export default function About() {
                   fontStyle: "italic",
                 }}
               >
-                functions
-              </em>{" "}
-              in the wild, not just in the case-study screenshot.
+                {txt.bio3Italic}
+              </em>
+              {txt.bio3Post}
             </motion.p>
           </div>
         </div>
@@ -286,14 +285,14 @@ export default function About() {
               className="col-span-12 sm:col-span-6 font-mono uppercase text-black-60"
               style={{ fontSize: "11px", letterSpacing: "0.18em" }}
             >
-              — Timeline / 1994 → 2026
+              {txt.timelineKicker}
             </motion.div>
             <motion.div
               {...fadeIn}
               className="hidden sm:block sm:col-start-10 sm:col-span-3 font-mono uppercase text-black-60 text-right"
               style={{ fontSize: "10px", letterSpacing: "0.20em" }}
             >
-              Hover → expand
+              {txt.timelineHint}
             </motion.div>
           </div>
           <div>
@@ -323,12 +322,12 @@ export default function About() {
                 color: "var(--accent)",
               }}
             >
-              toolkit.
+              {txt.skillsHeadingB}
             </span>
           </motion.h3>
           <div className="col-span-12 lg:col-start-5 lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10">
             <SkillsCol
-              title="Platforms"
+              title={txt.platforms}
               items={[
                 "Shopify OS 2.0",
                 "Liquid · Shopify CLI",
@@ -337,7 +336,7 @@ export default function About() {
               ]}
             />
             <SkillsCol
-              title="Frontend"
+              title={txt.frontend}
               items={[
                 "HTML · CSS · JS",
                 "jQuery",
@@ -346,7 +345,7 @@ export default function About() {
               ]}
             />
             <SkillsCol
-              title="Design"
+              title={txt.design}
               items={[
                 "Figma",
                 "Photoshop · Illustrator",

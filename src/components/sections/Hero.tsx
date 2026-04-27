@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
+import { useLang } from "../../lib/LangContext";
+import { t } from "../../lib/translations";
 
 const ease = [0.22, 0.7, 0.2, 1] as const;
 
 export default function Hero() {
   const base = import.meta.env.BASE_URL;
+  const { lang } = useLang();
+  const txt = t[lang].hero;
   return (
     <header
       id="top"
@@ -60,8 +64,7 @@ export default function Hero() {
               letterSpacing: "-0.02em",
             }}
           >
-            Twenty-five years of building brand, interface, and the code
-            underneath —{" "}
+            {txt.ledePre}{" "}
             <em
               style={{
                 fontFamily: "var(--font-serif)",
@@ -69,9 +72,9 @@ export default function Hero() {
                 color: "var(--accent)",
               }}
             >
-              end-to-end
+              {txt.ledeItalic}
             </em>
-            , from first sketch to final ship.
+            {txt.ledePost}
           </motion.p>
 
           <motion.a
