@@ -154,7 +154,6 @@ export default function Nav() {
               type="button"
               onClick={triggerSwitch}
               className="pointer-events-auto font-mono uppercase hover:underline underline-offset-[6px] decoration-1 cursor-pointer"
-              style={{ fontSize: "11px", letterSpacing: "0.14em" }}
             >
               {txt.langSwitch}
             </button>
@@ -266,7 +265,10 @@ export default function Nav() {
               </div>
               <button
                 type="button"
-                onClick={() => { triggerSwitch(); closeMenu(); }}
+                onClick={() => {
+                  triggerSwitch();
+                  closeMenu();
+                }}
                 className="font-mono uppercase text-white/60 hover:text-white transition-colors mt-2"
                 style={{ fontSize: "14px", letterSpacing: "0.14em" }}
               >

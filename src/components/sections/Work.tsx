@@ -252,7 +252,11 @@ function ProjectCase({
             {data.quote}
           </motion.p>
           <div className="col-span-12 lg:col-start-7 lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
-            <MetaBlock title={txt.work.stackLabel} items={data.stack} dark={dark} />
+            <MetaBlock
+              title={txt.work.stackLabel}
+              items={data.stack}
+              dark={dark}
+            />
             <MetaBlock
               title={txt.work.deliverablesLabel}
               items={data.deliverables}
@@ -316,7 +320,11 @@ function getProjects(lang: "en" | "no"): [ProjectData, ProjectData] {
     href: "https://barentsgallery.no",
     quote: (
       <>
-        "{w.p01.quoteStart}<span style={{ color: "var(--accent)" }}>{w.p01.quoteAccent1}</span>{w.p01.quoteMid}<span style={{ color: "var(--accent)" }}>{w.p01.quoteAccent2}</span>{w.p01.quoteEnd}"
+        "{w.p01.quoteStart}
+        <span style={{ color: "var(--accent)" }}>{w.p01.quoteAccent1}</span>
+        {w.p01.quoteMid}
+        <span style={{ color: "var(--accent)" }}>{w.p01.quoteAccent2}</span>
+        {w.p01.quoteEnd}"
       </>
     ),
     stack: [
@@ -328,7 +336,11 @@ function getProjects(lang: "en" | "no"): [ProjectData, ProjectData] {
     deliverables: w.p01.deliverables,
     frames: w.p01.frameLabels.map((label, i) => ({
       label,
-      image: [`${BASE}barents-product.webp`, `${BASE}barents-wishlist.webp`, `${BASE}barents-chooser.webp`][i],
+      image: [
+        `${BASE}barents-product.webp`,
+        `${BASE}barents-wishlist.webp`,
+        `${BASE}barents-chooser.webp`,
+      ][i],
     })),
     notes: [...w.p01.notes],
   };
@@ -347,7 +359,11 @@ function getProjects(lang: "en" | "no"): [ProjectData, ProjectData] {
     href: "https://merkbarents.no",
     quote: (
       <>
-        "{w.p02.quoteStart}<span style={{ color: "var(--accent)" }}>{w.p02.quoteAccent1}</span>{w.p02.quoteMid}<span style={{ color: "var(--accent)" }}>{w.p02.quoteAccent2}</span>{w.p02.quoteEnd}"
+        "{w.p02.quoteStart}
+        <span style={{ color: "var(--accent)" }}>{w.p02.quoteAccent1}</span>
+        {w.p02.quoteMid}
+        <span style={{ color: "var(--accent)" }}>{w.p02.quoteAccent2}</span>
+        {w.p02.quoteEnd}"
       </>
     ),
     stack: [
@@ -359,7 +375,11 @@ function getProjects(lang: "en" | "no"): [ProjectData, ProjectData] {
     deliverables: w.p02.deliverables,
     frames: w.p02.frameLabels.map((label, i) => ({
       label,
-      image: [`${BASE}merk-tjenester.webp`, `${BASE}merk-prosjekter.webp`, `${BASE}merk-bildeproduksjon.webp`][i],
+      image: [
+        `${BASE}merk-tjenester.webp`,
+        `${BASE}merk-prosjekter.webp`,
+        `${BASE}merk-bildeproduksjon.webp`,
+      ][i],
     })),
     notes: [...w.p02.notes],
   };

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import RevealLine from "../../lib/RevealLine";
 import { useLang } from "../../lib/LangContext";
 import { t } from "../../lib/translations";
+import { scrollToTop } from "../../lib/scroll";
 
 const VIEW_EASE = [0.2, 0.8, 0.2, 1] as const;
 
@@ -115,7 +116,6 @@ export default function Footer() {
             paddingBottom: "24px",
           }}
         >
-          <RevealLine delay={0.0}>{txt.headingA}</RevealLine>
           <RevealLine delay={0.08}>
             <span
               className="italic font-normal normal-case"
@@ -124,7 +124,7 @@ export default function Footer() {
                 color: "var(--accent)",
               }}
             >
-              {txt.headingB}
+              {txt.headingA} {txt.headingB}
             </span>
           </RevealLine>
           <RevealLine delay={0.16}>{txt.headingC}</RevealLine>
@@ -150,7 +150,9 @@ export default function Footer() {
           >
             {txt.lede}{" "}
             <strong className="font-semibold text-white">{txt.ledeQ}</strong>
-            {txt.ledePost}
+            {txt.ledePost1}
+            <br />
+            {txt.ledePost2}
           </motion.p>
           <div className="col-span-12 lg:col-start-9 lg:col-span-4 flex flex-col gap-3">
             <CTAButton
@@ -200,6 +202,34 @@ export default function Footer() {
             <br />
             <span style={{ color: "var(--accent)" }}>●</span> {txt.bookingNow}
           </MetaBlock>
+        </div>
+      </div>
+
+      {/* bottom bar */}
+      <div className="border-t border-white/10">
+        <div
+          className="max-w-[1680px] mx-auto px-6 sm:px-10 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6"
+          style={{
+            fontSize: "11px",
+            letterSpacing: "0.16em",
+            paddingTop: "28px",
+            paddingBottom: "80px",
+            color: "rgb(138, 134, 125)",
+          }}
+        >
+          <span className="font-mono uppercase">{txt.bottomCopyright}</span>
+          <span className="font-mono uppercase sm:text-center">
+            {txt.bottomIndex}
+          </span>
+          <span className="hidden sm:block font-mono uppercase sm:text-center">
+            {txt.bottomTypeface}
+          </span>
+          <button
+            onClick={() => scrollToTop()}
+            className="font-mono uppercase text-right cursor-pointer hover:text-white/70 transition-colors duration-300"
+          >
+            {txt.bottomEnd}
+          </button>
         </div>
       </div>
     </section>

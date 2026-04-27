@@ -8,7 +8,8 @@ const en = {
     langSwitch: "NO",
   },
   hero: {
-    ledePre: "Twenty-five years of building brand, interface, and the code underneath —",
+    ledePre:
+      "Twenty-five years of building brand, interface, and the code underneath —",
     ledeItalic: "end-to-end",
     ledePost: ", from first sketch to final ship.",
   },
@@ -60,7 +61,8 @@ const en = {
       ] as const,
       quoteStart: "A ",
       quoteAccent1: "regional",
-      quoteMid: " brand built like a magazine — with a checkout underneath that doesn't ",
+      quoteMid:
+        " brand built like a magazine — with a checkout underneath that doesn't ",
       quoteAccent2: "flinch",
       quoteEnd: ".",
     },
@@ -78,13 +80,13 @@ const en = {
     bio1Name: "Ramzy",
     bio1Mid: " — a digital designer and frontend developer based in ",
     bio1Place: "Kirkenes",
-    bio1Post:
-      ", Norway. For twenty-five years I've worked across ",
+    bio1Post: ", Norway. For twenty-five years I've worked across ",
     bio1Italic: "web design",
     bio1Suffix:
       ", graphic production and brand building, mostly under total ownership of the brief.",
     bio2: "I prefer projects where I can carry a thing from first sketch to final ship — concept and visual system, through to production code on Shopify or WordPress. One person, one throughline.",
-    bio3Pre: "The work I like best is the kind that looks simple and holds up under use: design that actually ",
+    bio3Pre:
+      "The work I like best is the kind that looks simple and holds up under use: design that actually ",
     bio3Italic: "functions",
     bio3Post: " in the wild, not just in the case-study screenshot.",
     timelineKicker: "— Timeline / 1994 → 2026",
@@ -97,18 +99,22 @@ const en = {
   },
   footer: {
     kicker: "— Contact / 04",
-    headingA: "Have a",
+    headingA: "have a",
     headingB: "project?",
     headingC: "Let's build.",
     lede: "Taking on a small number of briefs for",
     ledeQ: "Q3 2026",
-    ledePost:
-      ". Shopify themes, WooCommerce builds, and full identity → frontend work. Say hello — I answer everything.",
+    ledePost1: ". Shopify themes, WooCommerce builds, and full identity →",
+    ledePost2: "frontend work. Say hello — I answer everything.",
     studio: "Studio",
     live: "Live",
     socials: "Socials",
     availability: "Availability",
     bookingNow: "Booking now",
+    bottomCopyright: "© 2026 Ramzy A. Zaher",
+    bottomIndex: "Portfolio V.01 / IDX-001",
+    bottomTypeface: "Set in Plus Jakarta Sans & Newsreader",
+    bottomEnd: "End of document — ↑ Back to top",
   },
   statusBug: "Available · Kirkenes",
 };
@@ -122,8 +128,7 @@ const no: any = {
     langSwitch: "ENG",
   },
   hero: {
-    ledePre:
-      "Tjuefem år med å bygge merkevare, grensesnitt og koden under —",
+    ledePre: "Tjuefem år med å bygge merkevare, grensesnitt og koden under —",
     ledeItalic: "ende-til-ende",
     ledePost: ", fra første skisse til ferdig produkt.",
   },
@@ -136,7 +141,7 @@ const no: any = {
     p01: {
       role: "Temadesign · Frontend · UX",
       pitch:
-        "Et skreddersydd Shopify OS 2.0-tema for et galleri og detaljhandelmerke i Nordområdene — romvisualisering, ønskeliste, mersalgslogikk og lagdelt produktfiltrering, alt på tilpasset Liquid.",
+        "Et skreddersydd Shopify OS 2.0-tema for et galleri og detaljhandelmerke i Nordområdene — romvisualisering, ønskeliste, mersalgslogikk og lagdelt produktfiltrering, alt på skreddersydd Liquid.",
       deliverables: [
         ["UX-struktur", "01"],
         ["Visuell identitet", "02"],
@@ -145,14 +150,14 @@ const no: any = {
       ] as const,
       frameLabels: ["A · PRODUKT", "B · ØNSKELISTE", "C · VELGER"] as const,
       notes: [
-        "Mersalg er løst på blokknivå, ikke påkoblet — merchandisere komponerer siden i stedet for å ringe en utvikler.",
-        "Romvisualisering kjører på klientsiden med vedvarende tilstand på tvers av PDP-er, slik at en kunde kan kle en vegg før de forplikter seg.",
+        "Mersalg er løst på blokknivå, ikke påkoblet — klienten komponerer siden i stedet for å ringe en utvikler.",
+        "Romvisualisering kjører på klientsiden med vedvarende tilstand på tvers av PDP-er, slik at en kunde kan visualisere på en vegg før de forplikter seg.",
       ] as const,
       quoteStart: "Totalt eierskap fra ",
       quoteAccent1: "rutenett",
       quoteMid: " og typografi til siste linje Liquid — solgt som et ",
       quoteAccent2: "system",
-      quoteEnd: ", ikke en skin.",
+      quoteEnd: ", ikke et skin.",
     },
     p02: {
       role: "Full-stack Web · Identitet · CMS",
@@ -175,8 +180,8 @@ const no: any = {
       ] as const,
       quoteStart: "Et ",
       quoteAccent1: "regionalt",
-      quoteMid: " merke bygget som et magasin — med en kasse under som ikke ",
-      quoteAccent2: "vakler",
+      quoteMid: " merke bygget som et magasin — med en checkout under som er ",
+      quoteAccent2: "stødig",
       quoteEnd: ".",
     },
     stackLabel: "Stack",
@@ -212,18 +217,22 @@ const no: any = {
   },
   footer: {
     kicker: "— Kontakt / 04",
-    headingA: "Har du et",
+    headingA: "har du et",
     headingB: "prosjekt?",
     headingC: "La oss bygge.",
     lede: "Tar på meg et lite antall oppdrag for",
     ledeQ: "Q3 2026",
-    ledePost:
-      ". Shopify-temaer, WooCommerce-bygg og full identitet → frontend-arbeid. Si hei – jeg svarer på alt.",
+    ledePost1: ". Shopify-temaer, WooCommerce-bygg og full identitet →",
+    ledePost2: "frontend-arbeid. Si hei – jeg svarer på alt.",
     studio: "Studio",
     live: "Live",
     socials: "Sosiale medier",
     availability: "Tilgjengelighet",
     bookingNow: "Booker nå",
+    bottomCopyright: "© 2026 Ramzy A. Zaher",
+    bottomIndex: "Portefølje V.01 / IDX-001",
+    bottomTypeface: "Satt i Plus Jakarta Sans & Newsreader",
+    bottomEnd: "— ↑ Tilbake til toppen",
   },
   statusBug: "Tilgjengelig · Kirkenes",
 };

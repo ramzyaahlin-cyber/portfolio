@@ -55,7 +55,13 @@ export function LangProvider({ children }: { children: ReactNode }) {
 
   return (
     <LangContext.Provider
-      value={{ lang, triggerSwitch, wipePhase, onWipeInComplete, onWipeOutComplete }}
+      value={{
+        lang,
+        triggerSwitch,
+        wipePhase,
+        onWipeInComplete,
+        onWipeOutComplete,
+      }}
     >
       {children}
     </LangContext.Provider>

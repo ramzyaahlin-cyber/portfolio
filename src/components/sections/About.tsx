@@ -235,8 +235,20 @@ export default function About() {
                 lineHeight: "1.5",
               }}
             >
-              {txt.bio1Pre}<strong className="font-semibold">{txt.bio1Name}</strong>{txt.bio1Mid}<strong className="font-semibold">{txt.bio1Place}</strong>{txt.bio1Post}{" "}
-              <em style={{ fontFamily: "var(--font-serif)", color: "var(--accent)", fontStyle: "italic" }}>{txt.bio1Italic}</em>
+              {txt.bio1Pre}
+              <strong className="font-semibold">{txt.bio1Name}</strong>
+              {txt.bio1Mid}
+              <strong className="font-semibold">{txt.bio1Place}</strong>
+              {txt.bio1Post}{" "}
+              <em
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  color: "var(--accent)",
+                  fontStyle: "italic",
+                }}
+              >
+                {txt.bio1Italic}
+              </em>
               {txt.bio1Suffix}
             </motion.p>
             <motion.p
