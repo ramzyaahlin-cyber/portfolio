@@ -4,12 +4,7 @@ import { useLang } from "../../lib/LangContext";
 import { t } from "../../lib/translations";
 import { scrollToTop as smoothScrollToTop } from "../../lib/scroll";
 
-const LIGHT_SECTIONS = [
-  ".projects-section",
-  ".trust",
-  ".selected",
-  ".big-name",
-];
+const LIGHT_SECTIONS = [".projects-section"];
 
 function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(false);
@@ -106,24 +101,15 @@ export default function Nav() {
             className="flex items-center gap-6 sm:gap-10 pointer-events-auto"
             style={{ fontSize: "18px", letterSpacing: "-0.02em" }}
           >
-            <a
-              href="#work"
-              className="hover:underline underline-offset-[6px] decoration-1"
-            >
-              Work
-            </a>
-            <a
-              href="#about"
-              className="hover:underline underline-offset-[6px] decoration-1"
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="hover:underline underline-offset-[6px] decoration-1"
-            >
-              Contact
-            </a>
+            {NAV_LINKS.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="hover:underline underline-offset-[6px] decoration-1"
+              >
+                {label}
+              </a>
+            ))}
             <span className="hidden sm:inline opacity-30 mx-1">·</span>
             <a
               href="mailto:ramzy.zaher@gmail.com"
