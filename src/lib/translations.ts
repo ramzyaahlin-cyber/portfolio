@@ -123,7 +123,7 @@ const en = {
 const no: any = {
   nav: {
     work: "ARBEID",
-    about: "OM meg",
+    about: "OM MEG",
     contact: "KONTAKT",
     langSwitch: "ENG",
   },
