@@ -122,9 +122,9 @@ const en = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const no: any = {
   nav: {
-    work: "Arbeid",
-    about: "Om meg",
-    contact: "Kontakt",
+    work: "ARBEID",
+    about: "OM meg",
+    contact: "KONTAKT",
     langSwitch: "ENG",
   },
   hero: {
