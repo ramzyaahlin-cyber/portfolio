@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import RevealLine from "../../lib/RevealLine";
 
 const VIEW_EASE = [0.2, 0.8, 0.2, 1] as const;
 
