@@ -228,7 +228,7 @@ const no: any = {
     live: "Live",
     socials: "Sosiale medier",
     availability: "Tilgjengelighet",
-    bookingNow: "Booker nå",
+    bookingNow: "Book nå",
     bottomCopyright: "© 2026 Ramzy A. Zaher",
     bottomIndex: "Portefølje V.01 / IDX-001",
     bottomTypeface: "Satt i Plus Jakarta Sans & Newsreader",
