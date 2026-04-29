@@ -222,7 +222,7 @@ export default function About() {
                 letterSpacing: "0.20em",
               }}
             >
-              Ramzy Zaher — 2026
+              Ramzy Aahlin Zaher — 2026
             </span>
           </motion.div>
 
