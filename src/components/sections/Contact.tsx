@@ -176,7 +176,7 @@ export default function Contact() {
               <MetaLink href="https://barentsgallery.no" external>
                 barentsgallery.no ↗
               </MetaLink>
-              <MetaLink href="https://merkbarents.no" external>
+              <MetaLink href="https://merk-skisse03-ayr6.vercel.app/" external>
                 merkbarents.no ↗
               </MetaLink>
             </div>
