@@ -356,7 +356,7 @@ function getProjects(lang: "en" | "no"): [ProjectData, ProjectData] {
     tagRight: "WordPress / WooCommerce",
     captionDark: true,
     tagRightDark: false,
-    href: "https://merk-skisse03-ayr6.vercel.app/",
+    href: "https://www.merkbarents.no",
     quote: (
       <>
         "{w.p02.quoteStart}
