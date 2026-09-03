@@ -200,7 +200,10 @@ export default function Footer() {
           <MetaBlock title={txt.availability}>
             Q3 → Q4 2026
             <br />
-            <span style={{ color: "var(--accent)" }}>●</span> {txt.bookingNow}
+            <span style={{ color: "var(--accent)" }}>●</span>{" "}
+            <MetaLink href="mailto:ramzy.zaher@gmail.com?subject=Booking%20inquiry">
+              {txt.bookingNow}
+            </MetaLink>
           </MetaBlock>
         </div>
       </div>
